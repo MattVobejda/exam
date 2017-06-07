@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const RepoList = (props) => {
-    // const rows = props.repos.map((repo) => {
-    //     return (
-	   //      <tr key={repo.id}>
-	   //  		<td>{repo.name}</td>
-	   //  	</tr>
-    //     );
-    // })
+    const rows = props.repos.map((repo) => {
+         return (
+	         <tr key={repo.id}>
+	     		<td><Link onClick={() => props.onClick(repo.id)} to={`repos/${repo.name}/`}>{repo.name}</Link></td>
+	     	</tr>
+         );
+    })
+
     return (
     	<div className='row'>
-	        
 	        <table className='table'>
 	        	<thead>
 	        		<tr>
-	        			<th><h3>meadch's repositories</h3></th>
+	        			<th><h3>{props.user}'s repositories</h3></th>
 	        		</tr>
 	        		<tr>
 	        			<th>Filter repos by primary language</th>
@@ -36,18 +36,7 @@ const RepoList = (props) => {
 			        </tr>
 	        	</thead>
 	        	<tbody>
-	        		{/*{rows}*/}
-	        		<tr key='1'>
-	     				{/*<td>Pacman</td>
-	     				<td><Link onClick={() => props.onClick(user.login)} to={`/${user.login}/repos`}>{user.login}</Link></td>*/}
-	     				<td><a href=''>Pacman</a></td>
-	     			</tr>
-	     			<tr key='2'>
-	     				<td><a href=''>FancyCat</a></td>
-	     			</tr>
-	     			<tr key='3'>
-	     				<td><a href=''>TicTacToe</a></td>
-	     			</tr>
+	        		{rows}
 	        	</tbody>
 	        </table>
         </div>

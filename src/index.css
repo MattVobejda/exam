@@ -4,4 +4,9 @@
 
 .home_button{
 	display: inline-block;
+	display: none;
+}
+
+.home_button2{
+	display: inline-block;
 }

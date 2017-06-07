@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const RepoDetails = (props) => {
-    // const rows = props.repos.map((repo) => {
-    //     return (
-	   //      <tr key={repo.id}>
-	   //  		<td>{repo.name}</td>
-	   //  	</tr>
-    //     );
-    // })
+	console.log(props);
+    const rows = props.repodetail.map((repo) => {
+        return (
+	        <tr key={repo.id}>
+ 				<td>{repo.stargazers_count}</td>
+ 				<td>{repo.forks}</td>
+ 				<td>{repo.language}</td>
+	    	</tr>
+        );
+    })
     return (
     	<div className='row'>
 	        <h3>Pacman details</h3>
@@ -22,14 +25,7 @@ const RepoDetails = (props) => {
 	        		</tr>
 	        	</thead>
 	        	<tbody>
-	        		{/*{rows}*/}
-	        		<tr key='1'>
-	     				{/*<td>Pacman</td>
-	     				<td><Link onClick={() => props.onClick(user.login)} to={`/${user.login}/repos`}>{user.login}</Link></td>*/}
-	     				<td>32</td>
-	     				<td>6</td>
-	     				<td>JavaScript</td>
-	     			</tr>
+	        		{rows}
 	        	</tbody>
 	        </table>
         </div>
@@ -37,7 +33,7 @@ const RepoDetails = (props) => {
 }
 
 RepoDetails.propTypes = {
-	repos: PropTypes.array.isRequired
+	repodetail: PropTypes.array.isRequired
 }
 
 export default RepoDetails;
